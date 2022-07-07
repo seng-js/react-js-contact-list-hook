@@ -1,7 +1,5 @@
 import React from 'react';
 import ContactTable from "./ContactTable";
-import {useSelector} from "react-redux";
-import {selectAllPosts} from "../../features/posts/postsSlice";
 
 const ContactList = (props) => {
 
