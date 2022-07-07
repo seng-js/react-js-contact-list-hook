@@ -1,0 +1,29 @@
+table.table-sort thead a {
+    border: 0;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: inherit;
+    padding: 0.5em;
+    margin-bottom: 1px;
+}
+
+table.table-sort thead a.ascending::after {
+    content: '˅';
+    display: inline-block;
+    margin-left: 0.5em;
+}
+
+table.table-sort thead a.descending::after {
+    content: '˄';
+    display: inline-block;
+    margin-left: 0.5em;
+}
+
+tbody td {
+    padding: 0.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+tbody tr:hover {
+    background-color: #eee;
+}
