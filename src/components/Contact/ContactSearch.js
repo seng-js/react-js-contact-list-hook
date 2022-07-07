@@ -10,7 +10,7 @@ const ContactSearch = (props) => {
 
     return (
         <div className="search">
-            <input type="text" className="searchTerm" onKeyDown={searchInfo} placeholder="Search..." />
+            <input type="text" className="searchTerm" onKeyDown={searchInfo} placeholder="Type to search and enter" />
         </div>
     );
 }
