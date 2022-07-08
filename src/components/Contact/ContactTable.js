@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {useState, useMemo} from 'react';
 import './ContactTable.css';
-import {deleteInfo} from "../../Helpers";
+import {deleteInfo} from "../../util/";
 import {CSVLink} from "react-csv";
 
 const useSortableData = (items, config = null) => {
-    const [sortConfig, setSortConfig] = React.useState(config);
-
-    const sortedItems = React.useMemo(() => {
+    const [sortConfig, setSortConfig] = useState(config);
+    const sortedItems = useMemo(() => {
         let sortableItems = [...items];
         if (sortConfig !== null) {
             sortableItems.sort((a, b) => {
@@ -38,9 +37,6 @@ const useSortableData = (items, config = null) => {
 };
 
 const ContactTable = (props) => {
-
-    const tableColumns = ['Name', 'Phone', 'Email', 'Date']
-
     const { items, requestSort, sortConfig } = useSortableData(props.data);
     const getClassNamesFor = (name) => {
         if (!sortConfig) {
@@ -53,20 +49,20 @@ const ContactTable = (props) => {
         props.editActionInfo(id);
     }
 
+    const renderHeader = ['Name', 'Phone', 'Email', 'Date'].map(tableColum => {
+            return (<th key={tableColum}><a
+                onClick={() => requestSort(tableColum.toLowerCase())}
+                className={getClassNamesFor(tableColum.toLowerCase())}
+            >{tableColum}</a></th>)
+        }
+    )
+
     return (
         <table className="table-sort">
             <thead>
             <tr>
                 <th>№</th>
-                {
-                    tableColumns.map(tableColum => {
-                            return (<th key={tableColum}><a
-                                onClick={() => requestSort(tableColum.toLowerCase())}
-                                className={getClassNamesFor(tableColum.toLowerCase())}
-                            >{tableColum}</a></th>)
-                        }
-                    )
-                }
+                {renderHeader}
                 <th>
                     <CSVLink
                         type="button"

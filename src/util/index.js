@@ -1,8 +1,6 @@
 import {confirm} from "react-confirm-box";
 
-const contactStore = () => {
-    return 'contact-info';
-}
+const contactStore = () => 'contact-info';
 
 const getContactStorage = () => {
     if (localStorage.getItem(contactStore()) != null) {
@@ -21,7 +19,7 @@ const findMaxId = () => {
         return object.id;
     });
 
-    return ids.length == 0 ? 0 : Math.max(...ids);
+    return ids.length === 0 ? 0 : Math.max(...ids);
 }
 
 const getCurrentDate = () => {
@@ -47,7 +45,7 @@ const searchContactInfo = (search) => {
     const contacts = getContactStorage();
     if (search.length > 0) {
         const result = contacts.find(obj => obj.name === search);
-        if (result != undefined) {
+        if (result !== undefined) {
             return [result];
         }
         return contacts;

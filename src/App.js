@@ -2,7 +2,7 @@ import './App.css';
 import ContactList from "./components/Contact/ContactList";
 import ContactForm from "./components/Contact/ContactForm";
 import ContactSearch from "./components/Contact/ContactSearch";
-import {getContactStorage, getDataById, searchContactInfo} from "./Helpers";
+import {getContactStorage, getDataById, searchContactInfo} from "./util/";
 import React, {useState} from 'react';
 
 function App() {

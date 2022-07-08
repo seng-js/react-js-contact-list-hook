@@ -4,12 +4,10 @@ import {
     contactStore,
     getCurrentDate,
     findMaxId
-} from "../../Helpers";
+} from "../../util/";
 
 const ContactForm = (props) => {
-
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
-
     setValue('name', props.contact?.name);
     setValue('phone', props.contact?.phone);
     setValue('email', props.contact?.email);
@@ -33,7 +31,7 @@ const ContactForm = (props) => {
     };
 
     const saveInfo = (data) => {
-        if (props.contact?.id == undefined) {
+        if (props.contact?.id === undefined) {
             createContact(data);
         } else {
             updateContact(data);
@@ -100,7 +98,7 @@ const ContactForm = (props) => {
                     {props.contact.id && (
                         <a href="/" className="link-cancel">Cancel</a>
                     )}
-                <button type="submit" className="btn-success" value="Save" id="submit">{props.contact?.name == undefined ? 'Save': 'Update'}</button>
+                <button type="submit" className="btn-success" value="Save" id="submit">{props.contact?.name === undefined ? 'Save': 'Update'}</button>
             </form>
         </div>
     );
