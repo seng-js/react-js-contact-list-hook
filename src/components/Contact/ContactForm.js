@@ -8,6 +8,7 @@ import {
 
 const ContactForm = (props) => {
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+
     setValue('name', props.contact?.name);
     setValue('phone', props.contact?.phone);
     setValue('email', props.contact?.email);

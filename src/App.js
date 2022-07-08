@@ -6,7 +6,6 @@ import {getContactStorage, getDataById, searchContactInfo} from "./util/";
 import React, {useState} from 'react';
 
 function App() {
-
     const [contacts, setContacts] = useState(getContactStorage());
     const [contact, setContact] = useState([]);
 

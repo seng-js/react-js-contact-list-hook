@@ -35,7 +35,7 @@ const deleteInfo = async (id) => {
     let email = getDataById(id).email;
     const result = await confirm(`Are you sure to delete email: ${email}?`)
     if (result) {
-        let filtered = getContactStorage().filter(function(el) { return el.id != id; });
+        let filtered = getContactStorage().filter(function(el) { return el.id !== id; });
         localStorage.setItem(contactStore(), JSON.stringify(filtered));
     }
     window.location.reload();
@@ -43,12 +43,15 @@ const deleteInfo = async (id) => {
 
 const searchContactInfo = (search) => {
     const contacts = getContactStorage();
+    let regExp = /.*/s;
     if (search.length > 0) {
-        const result = contacts.find(obj => obj.name === search);
+        const result = contacts.find(obj => {
+            return obj.name.match(search, regExp) || obj.phone.match(search, regExp);
+        });
         if (result !== undefined) {
             return [result];
         }
-        return contacts;
+        return [];
     } else {
         return contacts;
     }
