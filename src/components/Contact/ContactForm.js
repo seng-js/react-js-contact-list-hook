@@ -1,5 +1,5 @@
 import {useForm} from 'react-hook-form';
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import {
     getContactStorage,
     contactStore,
@@ -8,11 +8,7 @@ import {
 } from "../../util/";
 
 const ContactForm = (props) => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
-        defaultValues: useMemo(() => {
-            return props.contact;
-        }, [props])
-    });
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const saveInfo = (data) => {
         if (props.contact?.id === undefined) {
