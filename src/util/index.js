@@ -52,18 +52,13 @@ const deleteInfo = async (id) => {
 
 const searchContactInfo = (search) => {
     const contacts = getContactStorage();
-    let regExp = /.*/s;
-    if (search.length > 0) {
-        const result = contacts.find(obj => {
-            return obj.name.match(search, regExp) || obj.phone.match(search, regExp);
-        });
-        if (result !== undefined) {
-            return [result];
-        }
-        return [];
-    } else {
-        return contacts;
-    }
+    const queryString = search.toLowerCase()
+    const filteredData = contacts?.filter(contact => {
+        const fullSearchQuery = `${contact.name} ${contact.phone}`
+        return fullSearchQuery.toLowerCase().includes(queryString);
+    })
+
+    return filteredData;
 }
 
 export {
