@@ -10,6 +10,15 @@ const getContactStorage = () => {
     return [];
 }
 
+const getDefaultContact = () => {
+    return {
+        name: '',
+        phone: '',
+        email: '',
+        action: 'Save'
+    };
+}
+
 const getDataById = (id) => {
     return getContactStorage().filter(el => el.id === id)[0];
 }
@@ -64,5 +73,6 @@ export {
     findMaxId,
     deleteInfo,
     searchContactInfo,
+    getDefaultContact,
     getCurrentDate,
 }

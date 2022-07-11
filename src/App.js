@@ -2,12 +2,12 @@ import './App.css';
 import ContactList from "./components/Contact/ContactList";
 import ContactForm from "./components/Contact/ContactForm";
 import ContactSearch from "./components/Contact/ContactSearch";
-import {getContactStorage, getDataById, searchContactInfo} from "./util/";
+import {getContactStorage, getDataById, searchContactInfo, getDefaultContact} from "./util/";
 import React, {useState} from 'react';
 
 function App() {
     const [contacts, setContacts] = useState(getContactStorage());
-    const [contact, setContact] = useState([]);
+    const [contact, setContact] = useState(getDefaultContact());
 
     const editActionInfo = (id) => {
         setContact(getDataById(id))

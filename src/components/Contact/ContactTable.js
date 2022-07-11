@@ -58,37 +58,39 @@ const ContactTable = (props) => {
     )
 
     return (
-        <table className="table-sort">
-            <thead>
-            <tr>
-                <th>№</th>
-                {renderHeader}
-                <th>
-                    <CSVLink
-                        type="button"
-                        data={props.data}
-                        filename={"contact-list.csv"}
-                        className="link-export"
-                        target="_blank">Export CSV</CSVLink>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            {items.map((item, index) => (
-                <tr key={item?.id}>
-                    <td>{++index}</td>
-                    <td>{item?.name}</td>
-                    <td>{item?.phone}</td>
-                    <td>{item?.email}</td>
-                    <td>{item?.date}</td>
-                    <td align="right">
-                        <button className="btn-success btn-action" onClick={() => editActionInfo(item?.id)}>Edit</button>
-                        <button className="btn-danger btn-action" onClick={() => deleteInfo(item?.id)} >Delete</button>
-                    </td>
+        <div className="table-list">
+            <table className="table-sort">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    {renderHeader}
+                    <th>
+                        <CSVLink
+                            type="button"
+                            data={props.data}
+                            filename={"contact-list.csv"}
+                            className="link-export"
+                            target="_blank">Export CSV</CSVLink>
+                    </th>
                 </tr>
-            ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {items.map((item, index) => (
+                    <tr key={item?.id}>
+                        <td>{++index}</td>
+                        <td>{item?.name}</td>
+                        <td>{item?.phone}</td>
+                        <td>{item?.email}</td>
+                        <td>{item?.date}</td>
+                        <td align="right">
+                            <button className="btn-success btn-action" onClick={() => editActionInfo(item?.id)}>Edit</button>
+                            <button className="btn-danger btn-action" onClick={() => deleteInfo(item?.id)} >Delete</button>
+                        </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
     );
 };
 
