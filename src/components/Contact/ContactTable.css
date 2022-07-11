@@ -1,19 +1,23 @@
-table.table-sort thead a {
+table.table-sort thead button {
     border: 0;
     font-family: inherit;
     font-weight: 700;
     font-size: inherit;
     padding: 0.5em;
     margin-bottom: 1px;
+    background: none;
+    color: #000;
+    margin-top: 0;
+    text-align: left;
 }
 
-table.table-sort thead a.ascending::after {
+table.table-sort thead button.ascending::after {
     content: '˅';
     display: inline-block;
     margin-left: 0.5em;
 }
 
-table.table-sort thead a.descending::after {
+table.table-sort thead button.descending::after {
     content: '˄';
     display: inline-block;
     margin-left: 0.5em;

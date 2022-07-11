@@ -52,10 +52,9 @@ const deleteInfo = async (id) => {
 
 const searchContactInfo = (search) => {
     const contacts = getContactStorage();
-    const queryString = search.toLowerCase()
     const filteredData = contacts?.filter(contact => {
-        const fullSearchQuery = `${contact.name} ${contact.phone}`
-        return fullSearchQuery.toLowerCase().includes(queryString);
+        const fullSearchQuery = `${contact.name} ${contact.phone}`;
+        return fullSearchQuery.toLowerCase().includes(search.toLowerCase());
     })
 
     return filteredData;

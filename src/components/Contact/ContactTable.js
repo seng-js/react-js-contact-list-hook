@@ -50,10 +50,10 @@ const ContactTable = (props) => {
     }
 
     const renderHeader = ['Name', 'Phone', 'Email', 'Date'].map(tableColum => {
-            return (<th key={tableColum}><a
-                onClick={() => requestSort(tableColum.toLowerCase())}
+            return (<th key={tableColum}><button
+onClick={() => requestSort(tableColum.toLowerCase())}
                 className={getClassNamesFor(tableColum.toLowerCase())}
-            >{tableColum}</a></th>)
+            >{tableColum}</button></th>)
         }
     )
 
